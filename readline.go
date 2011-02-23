@@ -3,14 +3,15 @@
 
 package readline
 
+// #include <stdio.h>
+// #include <stdlib.h>
 // #include <readline/readline.h>
 // #include <readline/history.h>
-// #include <stdlib.h>
 import "C"
 import "unsafe"
 
 func ReadLine(prompt *string) *string {
-	var p *_C_char;
+	var p *C.char;
 
 	//readline allows an empty prompt(NULL)
 	if prompt != nil { p = C.CString(*prompt) }
